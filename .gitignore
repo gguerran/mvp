@@ -1,0 +1,16 @@
+# Cache
+__pycache__/
+
+# Django stuff:
+local_settings.py
+db.sqlite3
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
