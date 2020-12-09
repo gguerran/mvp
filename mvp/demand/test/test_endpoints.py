@@ -95,7 +95,7 @@ class DemandViewsTest(TestCase):
         serializer = SetFinishedDemandSerializer(demand)
         self.assertEqual(response.data, serializer.data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-    
+
     def test_partial_update_for_open(self):
         data = {
             'status': 'Aberta',
