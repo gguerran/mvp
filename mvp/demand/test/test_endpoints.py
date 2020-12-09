@@ -135,7 +135,6 @@ class DemandViewsTest(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-
     def test_delete(self):
         request = factory.delete('api/v1/demand/',)
         force_authenticate(request, user=self.advertiser)
