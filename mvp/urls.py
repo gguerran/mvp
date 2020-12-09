@@ -38,6 +38,7 @@ urlpatterns = [
         r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0),
         name='schema-redoc'
     ),
+    path('api/v1/accounts/', include('mvp.accounts.urls'), name='accounts'),
     path('api/v1/demand/', include('mvp.demand.urls'), name='demand'),
     path(
         'api/v1/oauth/',

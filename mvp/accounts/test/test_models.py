@@ -11,6 +11,7 @@ class UserTest(TestCase):
         self.user = User.objects.create(
             name="usuário teste", email='test@test.com'
         )
+        self.user.set_password('#pass123')
         self.user.save()
 
     def test_create(self):
@@ -50,6 +51,9 @@ class UserTest(TestCase):
     def test_is_superuser(self):
         self.assertEquals(self.user.is_superuser, True)
 
+    def test_check_pass(self):
+        self.assertTrue(self.user.check_password('#pass123'))
+
     def test_created_at(self):
         self.assertIsInstance(self.user.created_at, datetime)
 
@@ -63,6 +67,7 @@ class AdvertiserTest(TestCase):
         self.advertiser = Advertiser.objects.create(
             name="usuário teste", email='test@test.com', phone='(00)00000-0000'
         )
+        self.advertiser.set_password('#pass123')
         self.advertiser.save()
 
     def test_create(self):
@@ -112,6 +117,9 @@ class AdvertiserTest(TestCase):
 
     def test_is_superuser(self):
         self.assertEquals(self.advertiser.is_superuser, False)
+
+    def test_check_pass(self):
+        self.assertTrue(self.advertiser.check_password('#pass123'))
 
     def test_created_at(self):
         self.assertIsInstance(self.advertiser.created_at, datetime)

@@ -16,6 +16,7 @@ class DemandViewsTest(TestCase):
         self.advertiser = Advertiser.objects.create(
             name="usuário teste", email='test@test.com', phone='(00)00000-0000'
         )
+        self.advertiser.set_password('#pass123')
         self.advertiser.save()
         self.demand = Demand.objects.create(
             description="demanda teste", state='PI', city='Corrente',
