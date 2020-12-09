@@ -1,0 +1,575 @@
+{
+	"info": {
+		"_postman_id": "a6b82259-ec19-44a5-8594-0cfe73e597c0",
+		"name": "FINXI - DEMANDAS",
+		"description": "API para gerenciamento de demandas por Anunciantes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Criar Demandante",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Gustavo\",\n    \"email\": \"gustavoguerra.gr@gmail.com\",\n    \"phone\": \"(89)99934-0124\",\n    \"password1\": \"#pass123\",\n    \"password2\": \"#pass123\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/accounts/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "cache-control",
+						"value": "no-cache",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"description": "Define o tipo de autenticação - no nosso caso, via usuário e senha",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "mcPSTfqQJrMWs42TjDSieV6nBd7oTOzWi08uCV64",
+							"description": "Define o identificador do cliente, gerado no Django-Admin, após as migrations do oauth2kit ser instalado",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "5XCm0RhkANivKuJl1FMLZm59dBTpy94K38c5vkwvp7iIs92eJzsFkpJuqE4IQQt8pHykddjplBJP7akf3IpxjuLUqtx9Sw95F4ZisdnYt3PLNg2uA67O9kQ1brgFnZyQ",
+							"description": "Define a senha para o cliente, que o autoriza a entrar no sistema e consumir a API",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "gustavoguerra.gr@gmail.com'",
+							"description": "Nome de usuário. No nosso caso, o username é o email",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "#pass123",
+							"description": "A senha do usuário",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/oauth/token/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"oauth",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar demandantes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "BOVgCEjr1gZ3uwXT6pLG7CjH3U9203",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/accounts/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detalhar demandante",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "BOVgCEjr1gZ3uwXT6pLG7CjH3U9203",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/accounts/<id_demandante>/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"<id_demandante>",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar demandante",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "BOVgCEjr1gZ3uwXT6pLG7CjH3U9203",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Gustavo\",\n    \"email\": \"gustavoguerra.gr@gmail.com\",\n    \"phone\": \"(89)999340125\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/accounts/<id_demandante>/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"<id_demandante>",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar senha do demandante",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "BOVgCEjr1gZ3uwXT6pLG7CjH3U9203",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"last_pass\": \"#pass123\",\n    \"password\": \"#pass123\",\n    \"password2\": \"#pass123\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/accounts/<id_demandante>/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"accounts",
+						"<id_demandante>",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar demanda",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d7F3aERPggP3JbQjOWSLM9b8XqhyQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"description\": \"teste 2\",\n\"state\": \"PI\",\n\"city\": \"Corrente\",\n\"district\": \"Centro\",\n\"street\": \"Rua 17\",\n\"number\": 222,\n\"status\": \"Aberta\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/demand/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"demand",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar demandas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "RWHiVgWj3Zn1lDpj3utIhURppsd2q8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/demand/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"demand",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detalhar demandas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "RWHiVgWj3Zn1lDpj3utIhURppsd2q8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/demand/<id_demanda>/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"demand",
+						"<id_demanda>",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar demandas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "RWHiVgWj3Zn1lDpj3utIhURppsd2q8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"description\": \"teste 07\",\n\"state\": \"PI\",\n\"city\": \"Corrente\",\n\"district\": \"Centro\",\n\"street\": \"Rua 17\",\n\"number\": 222,\n\"status\": \"Aberta\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/demand/55e2885c-85cb-4fc4-a339-51df563a81bc/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"demand",
+						"55e2885c-85cb-4fc4-a339-51df563a81bc",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finalizar demadas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "RWHiVgWj3Zn1lDpj3utIhURppsd2q8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"status\": \"Finalizada\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/demand/<id_demanda>/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"demand",
+						"<id_demanda>",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir demandas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "d7F3aERPggP3JbQjOWSLM9b8XqhyQE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "127.0.0.1:8001/api/v1/demand/<id_demanda>/",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8001",
+					"path": [
+						"api",
+						"v1",
+						"demand",
+						"<id_demanda>",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

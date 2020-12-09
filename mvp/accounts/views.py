@@ -20,3 +20,7 @@ class AdvertiserViewSet(NewModelViewSet):
 
     def get_queryset(self):
         return Advertiser.objects.filter(id=self.request.user.id)
+
+    def partial_update(self, request, *args, **kwargs):
+        kwargs['partial'] = False
+        return self.update(request, *args, **kwargs)
