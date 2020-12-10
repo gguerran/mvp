@@ -3,7 +3,7 @@ Repositório para o software que gerencia as demadas da Federação de Comércio
 
 ## Para utilizar a aplicação em seu computador:
 Para fazer uso da aplicação, uma sequência de passos devem ser executadas. A seguir, elas serão enumeradas e abaixo poderá ver os comandos utilizados no terminal.\
-(Feito baseado no sistema operacional Linux. Se você usa outro sistema operacional, veja os comandos equivalentes para o mesmo.)
+(Feito baseado no sistema operacional Linux. Se você usa outro sistema operacional, veja os comandos equivalentes para o mesmo. Pressupõe-se também que o usuário possua em sua máquina já instalados os softwares Docker e Docker-Compose, estes já com permissão de execução. Caso não os possua, o tutorial a seguir ajuda a instalar o docker: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-pt e o docker-compose: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04-pt)
 
 
 1.: Clone o repositório;\
