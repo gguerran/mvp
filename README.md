@@ -1,4 +1,4 @@
-# Gerencia de Demandas da Federação de Comércio
+# Gerêcia de Demandas da Federação de Comércio
 Repositório para o software que gerencia as demadas da Federação de Comércio.
 
 ## Para utilizar a aplicação em seu computador:
