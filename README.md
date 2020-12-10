@@ -57,7 +57,7 @@ Lembra da Application que criamos? vá até a listagem e abra a que foi criada s
 
 1.: No campo 'client_id' da requisição, no Postman,vc deverá copiar o que está na application, no campo 'Client id';
 
-2.: No campo 'clinet_secret' da requisição, no Postman, vc deverá copia o que está na application, no campo 'Client secret';
+2.: No campo 'client_secret' da requisição, no Postman, vc deverá copia o que está na application, no campo 'Client secret';
 
 A partir disso, a API poderá ser utilizada.
 É importante ressaltar que a requisição 'Criação de demandante' não necessita de autenticação, poderá criar o demandante através da API, na requisição e utilizar os dados da
